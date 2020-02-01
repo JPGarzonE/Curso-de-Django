@@ -174,14 +174,14 @@ Se usa el modelo de datos y se llama a su atributo Objects: Ex `User.objects`.
     
   - ### Obtener varios usuarios de la Base de datos:
     - Traer a todos los usuarios:
-    ```
+    ```python
       from posts.model import User
   
       users = User.objects.all() # devuelve un queryset con todos los usuarios
     ```
     
     - Con un filtro que devuelva los que cumplen con los criterios:
-    ```
+    ```python
       from posts.model import User
       
       platziUsers = User.objects.filter(email__endswith = '@platzi.com')
@@ -189,7 +189,7 @@ Se usa el modelo de datos y se llama a su atributo Objects: Ex `User.objects`.
     ```
   
   - ### Actualizar varios registros de la Base de datos:
-    ```
+    ```python
       User.objects.filter(email__endswith = '@platzi.com').update(is_admin=True)
       # Esta haciendo admin a todos los usuarios con correo '@platzi.com'
     ```
