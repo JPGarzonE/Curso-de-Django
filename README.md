@@ -93,6 +93,13 @@ Curso basico de Django en Platzi
   ```
     $ python3 manage.py shell
   ```
+  
+  - ### Para crear un superuser en Django:
+  
+  Es muy necesario para poder administrar la aplicación de django, ya que con este usuario se puede tener permisos y permite una buena administración de sistema.
+  ```
+    $ python3 manage.py createsuperuser
+  ```
  
 ## Registros en la base datos (Django):
 
