@@ -214,3 +214,20 @@ Se usa el modelo de datos y se llama a su atributo Objects: Ex `User.objects`.
   - **App:** Conjunto de código que se encarga de resolver una parte muy específica del proyecto, contiene sus modelos, vistas, urls, etc.
 
   - **Patrón de diseño:** Solución común a un problema particular.
+
+## Middlewares en Django:
+  Un middleware en Django es una serie de hooks y una API de bajo nivel que nos permiten modificar el objeto request antes de que llegue   a la vista y response antes de que salga de la vista.
+
+  Django dispone de los siguientes middlewares por defecto:
+
+  - SecurityMiddleware
+  - SessionMiddleware
+  - CommonMiddleware
+  - CsrfViewMiddleware
+  - AuthenticationMiddleware
+  - MessageMiddleware
+  - XFrameOptionsMiddleware
+  
+  El middleware desarrollado en el proyecto redirecciona al usuario al perfil para que actualice su información cuando no haya definido aún biografía o avatar.
+  
+  [Documentacion Middlewares Django](https://docs.djangoproject.com/en/3.0/topics/http/middleware/)
