@@ -185,6 +185,9 @@ Se usa el modelo de datos y se llama a su atributo Objects: Ex `User.objects`.
       from posts.model import User
   
       users = User.objects.all() # devuelve un queryset con todos los usuarios
+      # tambien hay formas de ordenar la info que se pide
+      # en este caso las trae desde las más recientes
+      users = User.objects.all().order_by('-created')
     ```
     
     - Con un filtro que devuelva los que cumplen con los criterios:
