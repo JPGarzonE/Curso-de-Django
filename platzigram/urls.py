@@ -19,7 +19,8 @@ urlpatterns = [
     path('sort/', local_views.sorted_numbers, name = 'sort'),
     path('welcome/<str:name>/<int:age>', local_views.greet_user, name = 'greeting'),
 
-    path('posts/', posts_views.list_posts, name = 'feed'),
+    path('', posts_views.list_posts, name = 'feed'),
+    path('posts/new/', posts_views.create_post, name = 'create_post'),
 
     path('users/login/', users_views.login_view, name = 'login'),
     path('users/logout/', users_views.logout_view, name = 'logout'),

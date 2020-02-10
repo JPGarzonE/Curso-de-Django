@@ -14,6 +14,7 @@ from users.models import Profile
 
 # Forms
 from users.forms import ProfileForm
+from users.forms import SignUpForm
 
 # Create your views here.
 
@@ -74,26 +75,17 @@ def logout_view(request):
 def signup(request):
 
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['passwd']
-        password_confirmation = request.POST['passwd_confirmation']
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = SignUpForm()
 
-        if password != password_confirmation:
-            return render(request, 'users/signup.html', {'error': 'Password confirmation does not match'})
-
-        try:
-            user = User.objects.create_user( username = username, password = password )
-        except IntegrityError:
-            return render(request, 'users/signup.html', {'error': 'username is alredy in use'})
-
-        user.first_name = request.POST['first_name']
-        user.last_name = request.POST['last_name']
-        user.email = request.POST['email']
-        user.save()
-
-        profile = Profile(user = user)
-        profile.save()
-
-        return redirect('login')
-
-    return render( request, 'users/signup.html' )
+    return render( 
+        request = request,
+        template_name = 'users/signup.html',
+        context = {
+            'form': form
+        }
+    )
