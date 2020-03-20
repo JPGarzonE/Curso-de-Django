@@ -2,7 +2,7 @@
 
 # Django
 from django.db import models
-from django.contrib.auth.models import User
+from users.models import User
 
 class Post(models.Model):
     """Post model."""
@@ -12,11 +12,6 @@ class Post(models.Model):
         on_delete=models.CASCADE
         # la idea es que el on_delete este protegido ya que generalmente 
         # no queremos que se borren los datos por lo valiosos que son para el negocio
-    )
-
-    profile = models.ForeignKey(
-        'users.Profile',
-        on_delete=models.CASCADE
     )
 
     title = models.CharField(max_length=255)

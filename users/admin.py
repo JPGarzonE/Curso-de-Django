@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from users.models import Profile
 
 # Register your models here.
-
+    # admin.site.register(User, BaseUserAdmin)
 # One way to register a model:
     # admin.site.register(Profile)
 
@@ -19,13 +19,10 @@ class ProfileAdmin(admin.ModelAdmin):
     """Profile admin."""
 
     # lista que determina que atributos se ven en el admin
-    list_display = ('pk', 'user', 'phone_number', 'website', 'picture')
+    list_display = ('pk', 'user', 'phone_number', 'picture')
     
     # lista que dice que atributos son clickeables
     list_display_links = ('pk', 'user')
-
-    # lista que dice que atributos se pueden editar sin entrar a los detalles del perfil
-    list_editable = ('website',)
 
     # lista que dice que atributos serán criterios de busqueda
     search_fields = (

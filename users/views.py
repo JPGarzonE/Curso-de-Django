@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.utils import IntegrityError
 
 # Model
-from django.contrib.auth.models import User
+from users.models import User
 from users.models import Profile
 
 # Forms
@@ -37,7 +37,7 @@ def update_profile(request):
                 profile.picture = data['picture']
             profile.save()
 
-            return redirect('update_profile')
+            return redirect('users:update_profile')
     else:
         form = ProfileForm()
 
@@ -61,7 +61,7 @@ def login_view(request):
 
         if user:
             login(request, user)
-            return redirect('feed')
+            return redirect('posts:feed')
         else:
             return render(request, 'users/login.html', {'error': 'Invalid username or password'})
         
@@ -70,7 +70,7 @@ def login_view(request):
 @login_required
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('users:login')
 
 def signup(request):
 
@@ -78,7 +78,7 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('users:login')
     else:
         form = SignUpForm()
 
