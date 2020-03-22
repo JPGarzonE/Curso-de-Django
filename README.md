@@ -141,7 +141,14 @@ Se usa el modelo de datos y se llama a su atributo Objects: Ex `User.objects`.
         
         arturo.save() # Para guardar la instancia a la BD
       ```
-      
+  
+  - ### Mejor manera para crear un usuario
+      ```python
+         from posts.model import User
+         
+         User.objects.create_user(**data)
+      ```
+  
   - ### Borrar un registro de la Base de datos:
   
     ```python
